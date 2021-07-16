@@ -53,6 +53,25 @@
     </nav>
   </header>
   <!--FIM CABEÇALHO-->
+  <!--FUNÇÃO STORAGE-->
+    <header>
+      <script>
+        function SalvarForm(){
+
+          if(typeof(Storage) !== "undefined"){
+
+            if(localStorage.cont){
+               localStorage.cont = Number(localStorage.cont)+1;
+            } else {
+              localStorage.cont = 1;
+            }
+            Indice = document.getElementById('email').value;
+            localStorage.setItem("Indice_" + localStorage.cont, Indice);
+          } 
+        }
+      </script>
+    </header>
+
   <section id="home">
     <!--INICIO SEÇÃO HOME-->
     <div class="container">
@@ -66,10 +85,11 @@
             </p>
             <form class="mt-4 mb-4">
               <div class="input-group input-group-lg">
-                <input type="text" placeholder="Seu e-mail" class="form-control">
-                <div class="input-group-append">
+                 <input type="text" id= "email" placeholder="Seu e-mail" class="form-control" >
+                 <button id="bt-enviar" onclick="SalvarForm()" class="btn btn-primary btn-lg">Cadastre-se</button>
+                <!--<div class="input-group-append">
                   <button type="button" class="btn btn-primary btn-lg">Cadastre-se</button>
-                </div>
+                </div>-->
               </div>
             </form>
             <p>
@@ -166,7 +186,6 @@
   </section>
   <section>
     
-
   <footer class="mt-4 mb-4 ">
     <div class="container">
       <div class="row">
